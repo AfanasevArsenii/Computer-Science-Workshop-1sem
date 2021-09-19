@@ -1,0 +1,20 @@
+import turtle
+
+turtle.shape('turtle')
+
+x = 0
+y = 0
+l0 = 10
+l = l0
+
+turtle.goto(x, y)
+for i in range(10):
+    for k in range(4):
+        turtle.forward(l)
+        turtle.left(90)
+    turtle.penup()
+    x -= 10
+    y -= 10
+    turtle.goto(x, y)
+    turtle.pendown()
+    l = l + 2*l0
