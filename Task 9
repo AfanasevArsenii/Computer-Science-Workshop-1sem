@@ -1,0 +1,22 @@
+import numpy as np
+import turtle
+
+turtle.shape('turtle')
+
+R = 10 #радиус описаной окружности
+n = 3 #степень многоугольника
+
+
+for i in range (10):
+    a = 2 * R * np.sin(2*np.pi / (2*n)) #длина стороны многоугольника
+    fi = (180 * (n-2) / n)  # угол при вершине многоульника
+    turtle.left(180 - fi/2)
+    for k in range (n):
+        turtle.forward(a)
+        turtle.left(180 - fi)
+    turtle.right(180 - fi/2)
+    n += 1
+    R += 10
+    turtle.penup()
+    turtle.forward(10)
+    turtle.pendown()
