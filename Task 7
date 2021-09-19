@@ -1,0 +1,15 @@
+import turtle
+import numpy as np
+
+turtle.shape('turtle')
+
+a = 1
+f = 0.1
+f0 = f*(180/np.pi)
+
+for i in range (1000):
+    r = a*f/(2*np.pi)
+    turtle.forward(r)
+    turtle.left(f0)
+    f += 0.1
+    r += r
