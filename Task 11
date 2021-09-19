@@ -1,0 +1,11 @@
+import turtle
+
+turtle.shape('turtle')
+
+r = 30
+
+turtle.right(90)
+for i in range (10):
+    turtle.circle(r)
+    turtle.circle(-r)
+    r += 5
