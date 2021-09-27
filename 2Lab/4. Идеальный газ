@@ -1,0 +1,39 @@
+from random import randint, uniform
+import turtle
+
+number_of_turtles = 15
+steps_of_time_number = 500
+l=200
+
+turtle.shape('square')
+turtle.width(1)
+turtle.shapesize(0.01, 0.01)
+turtle.speed(10)
+
+turtle.left(90)
+turtle.penup()
+turtle.goto(-l, -l)
+turtle.pendown()
+turtle.goto(-l, l)
+turtle.goto(l, l)
+turtle.goto(l, -l)
+turtle.goto(-l, -l)
+
+pool = [turtle.Turtle(shape='circle') for i in range(number_of_turtles)]
+for unit in pool:
+    unit.penup()
+    unit.shapesize(0.3, 0.3)
+    unit.vx = uniform(-3, 3)
+    unit.vy = uniform(-3, 3)
+    unit.speed(100)
+    unit.goto(randint(-l, l), randint(-l, l))
+
+for i in range(steps_of_time_number):
+    for unit in pool:
+        x = unit.xcor() + unit.vx
+        y = unit.ycor() + unit.vy
+        unit.goto(x, y)
+        if (unit.xcor() <= -l) or (unit.xcor() >= l):
+            unit.vx = -unit.vx
+        if (unit.ycor() <= -l) or (unit.ycor() >= l):
+            unit.vy = -unit.vy
