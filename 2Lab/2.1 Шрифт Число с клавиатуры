@@ -1,0 +1,35 @@
+import turtle as tr
+import math
+
+tr.shape('turtle')
+tr.speed(10)
+tr.left(90)
+
+c = ('tr.forward(20)', 'tr.forward(40)', 'tr.forward(20*math.sqrt(2))',
+     'tr.right(45) ', 'tr.right(90)', 'tr.left(45)', 'tr.left(90)',
+     'tr.penup()', 'tr.pendown()')
+
+numbers = [(c[6], c[0], c[6], c[1], c[6], c[0],  c[6], c[1]),
+          (c[6], c[5], c[2], c[6], c[6], c[2], c[4], c[3], c[1], c[6], c[6]),
+          (c[6], c[0], c[4], c[4], c[0], c[4], c[0], c[3], c[2], c[5], c[6], c[0], c[6]),
+          (c[6], c[0], c[4], c[4], c[0], c[3], c[4], c[2], c[5], c[6], c[0], c[3], c[4], c[2], c[5], c[6], c[6]),
+          (c[7], c[6], c[0], c[4], c[8], c[6], c[6], c[0], c[6], c[0], c[6], c[0], c[6], c[6], c[1], c[6], c[6]),
+          (c[7], c[6], c[0], c[4], c[8], c[4], c[0], c[6], c[6], c[0], c[6], c[0], c[6], c[0], c[4], c[0], c[4], c[0], c[4]),
+          (c[6], c[5], c[2], c[5], c[6], c[0], c[4], c[0], c[4], c[0], c[4], c[0]),
+          (c[6], c[0], c[6], c[6], c[0], c[4], c[3], c[2], c[5], c[0], c[6], c[6]),
+          (c[6], c[0], c[6], c[1], c[6], c[0], c[6], c[1], c[6], c[0], c[6], c[0], c[6], c[0], c[6]),
+          (c[6], c[0], c[6], c[0], c[6], c[0], c[6], c[0], c[6], c[6], c[0], c[3], c[2], c[3], c[4])]
+
+def draw(num):
+    x, y = tr.pos()
+    for j in range(len(numbers[num])):
+        eval(numbers[num][j])
+    tr.penup()
+    tr.goto(x + 30, y)
+    tr.pendown()
+
+print('Напишите число:')
+N = list(str(input()))
+
+for i in range(len(N)):
+    draw(int(N[i]))
